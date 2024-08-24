@@ -8,10 +8,11 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=aniguessr.com
 // @grant        none
 // ==/UserScript==
-
-let genres = 0;
-let themes = 0;
-let studio = 0;
+const rep = {
+    genres: 0,
+    themes: 0,
+    studio: 0,
+}
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const main = async () => {
@@ -43,9 +44,9 @@ const getLine = (line, index) => {
     const tab = Array.from(line.childNodes);
     let retour = getEmojiText(tab[0]);
     retour += getUpOrDown(tab[1]);
-    retour += getMulti(tab[2],index, genres);
-    retour += getMulti(tab[3],index, themes);
-    retour += getMulti(tab[4],index, studio);
+    retour += getMulti(tab[2],index, "genres");
+    retour += getMulti(tab[3],index, "themes");
+    retour += getMulti(tab[4],index, "studio");
     retour += getEmojiText(tab[5]);
     retour += getUpOrDown(tab[6]);
     return retour;
@@ -69,13 +70,13 @@ const getUpOrDown = (text) => {
     return '⬇️';
 }
 
-const getMulti = (text, index, nbGoodRep) => {
+const getMulti = (text, index, type) => {
     const response = Array.from(text.childNodes);
     if(index == 0) {
-       nbGoodRep = response.length;
+       rep[type] = response.length;
        return '🟩';
     }
-    if(response.length == nbGoodRep && response.every(isTextGood)){
+    if(response.length == rep[type] && response.every(isTextGood)){
         return '🟩';
     }
     if(response.some(isTextGood)){
