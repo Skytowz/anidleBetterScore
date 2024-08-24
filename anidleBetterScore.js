@@ -7,6 +7,8 @@
 // @match        https://aniguessr.com/anidle
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=aniguessr.com
 // @grant        none
+// @downloadURL https://raw.githubusercontent.com/Skytowz/anidleBetterScore/main/anidleBetterScore.js
+// @updateURL https://raw.githubusercontent.com/Skytowz/anidleBetterScore/main/anidleBetterScore.js
 // ==/UserScript==
 const rep = {
     genres: 0,
