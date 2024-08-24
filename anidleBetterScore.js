@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2024-08-19
+// @version      2024-08-24
 // @description  try to take over the world!
 // @author       You
 // @match        https://aniguessr.com/anidle
